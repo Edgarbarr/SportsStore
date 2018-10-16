@@ -17,6 +17,8 @@
 
 namespace SportsStore.WebUI.DependencyResolution {
     using StructureMap;
+    using SportsStore.Domain.Abstract;
+    using SportsStore.Domain.Concrete;
     using StructureMap.Configuration.DSL;
     using StructureMap.Graph;
 	
@@ -30,6 +32,7 @@ namespace SportsStore.WebUI.DependencyResolution {
                     scan.WithDefaultConventions();
 					scan.With(new ControllerConvention());
                 });
+            For<IProductRepository>().Use<EFProductRepository>();
             //For<IExample>().Use<Example>();
         }
 
