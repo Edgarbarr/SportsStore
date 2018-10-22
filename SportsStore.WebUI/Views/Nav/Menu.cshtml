@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<string>
 
 @Html.ActionLink("Home", "List", "Product", null,
-    new { @class = "btn btn-CodeBlockType btn-default btn-lg" })
+    new { @class = "btn btn-block btn-default btn-lg" })
 
 @foreach (var link in Model)
 {
@@ -9,7 +9,7 @@
 {
     controller = "Product",
     action = "List",
-    category = "link",
+    category = link,
     page = 1
 },new
 {
