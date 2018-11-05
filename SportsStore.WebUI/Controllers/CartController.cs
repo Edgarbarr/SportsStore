@@ -15,13 +15,17 @@ namespace SportsStore.WebUI.Controllers
     {
         private IProductRepository repository;
 
-        public CartController(IProductRepository repo) { repository = repo; }
-        public ViewResult Index(string returnUrl)
+        public CartController(IProductRepository repo)
+        {
+            repository = repo;
+        }
+        public ViewResult Index(Cart cart, string returnUrl)
         {
             return View(new CartIndexViewModel
             {
-                Cart = GetCart(),
-                ReturnUrl = returnUrl
+
+                ReturnUrl = returnUrl,
+                Cart = cart
             });
         }
 
